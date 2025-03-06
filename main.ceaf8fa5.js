@@ -31327,7 +31327,9 @@ const Main = () => {
     const deleteRowHandler = (rowId) => (event) => {
         event.stopPropagation();
         setIsLoading(true);
-        fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/${rowId}/delete`, { method: 'DELETE' })
+        fetch(`https://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/${rowId}/delete`, {
+            method: 'DELETE',
+        })
             .then((res) => res.json())
             // @ts-expect-error
             .then(() => setData((prevState) => filteredData(prevState, rowId)))
@@ -31367,7 +31369,7 @@ const Main = () => {
             };
             setIsLoading(true);
             if (row.isTemp === true) {
-                fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/create`, {
+                fetch(`https://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/create`, {
                     method: 'POST',
                     body: JSON.stringify(Object.assign(Object.assign({}, payload), { parentId: row.parentId })),
                     headers: {
@@ -31382,7 +31384,7 @@ const Main = () => {
                     .finally(() => setIsLoading(false));
                 return;
             }
-            fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/${row.id}/update`, {
+            fetch(`https://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/${row.id}/update`, {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
@@ -31403,7 +31405,7 @@ const Main = () => {
     };
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
         setIsLoading(true);
-        fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/list`, { headers: { Accept: '*/*' } })
+        fetch(`https://185.244.172.108:8081/v1/outlay-rows/entity/${src_config__WEBPACK_IMPORTED_MODULE_2__.entityId}/row/list`, { headers: { Accept: '*/*' } })
             .then((res) => res.json())
             .then((data) => {
             // @ts-expect-error
@@ -31762,4 +31764,4 @@ root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_App__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=main.32575c07.js.map
+//# sourceMappingURL=main.ceaf8fa5.js.map
